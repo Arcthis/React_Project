@@ -1,0 +1,62 @@
+/* ----- TEMPLATE COULEURS ----- */
+/* 
+#F7F6F4 --- BLANC
+#C28159 --- ORANGE => hover : #C2784A
+#94928E --- GRIS CLAIR
+#D23919 --- ROUGE
+#353835 --- GRIS FONCE
+*/
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #94928E;
+  padding: 20px;
+  color: white;
+}
+
+.App-header h1 {
+  font-size: 2.5em;
+}
+
+.App-header p {
+  font-size: 1.2em;
+  margin-top: 20px;
+}
+
+.primary_button:hover,
+.primary_button:focus {
+  transform: scale(1.1);
+  background-color: #C2784A; /* Couleur de fond lors du hover ou focus */
+  transition: border-color 0.7s, background-color 0.7s, box-shadow 0.7s; /* Transition pour le changement de couleur de fond */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Ombre portée lors du hover ou focus */
+}
+
+.primary_button {
+  padding: 10px 20px;
+  font-size: 1.2em;
+  background-color: #C28159; /* Couleur de fond par défaut */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.primary_button:focus:not(:hover) {
+  transform: scale(1);
+}
+
+.App-footer {
+  background-color: #94928E;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+}
