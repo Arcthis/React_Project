@@ -4,7 +4,7 @@
 #F7F6F4 --- BLANC
 #C28159 --- ORANGE => hover : #C2784A
 #94928E --- GRIS CLAIR
-#D23919 --- ROUGE
+#D23919 --- ROUGE => hover : #E23B19
 #353835 --- GRIS FONCE
 */
 
@@ -139,6 +139,48 @@ section {
   margin: 0;
 }
 
+#action_prods {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 150px;
+}
+
+.ProdInfo {
+  background-color: #353835;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  height: 300px;
+  border: 1px solid black;
+  flex: 1;
+  margin: 30px 315px;
+}
+
+.audio-player {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #353835;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  width: 59%;
+  margin: 20px auto;
+}
+
+.audio-progress {
+  flex-grow: 1;
+  margin: 0 10px;
+}
+
+.audio-progress input {
+  width: 100%;
+}
+
 /* ---------------------------- BUTTONS ---------------------------- */
 
 .primary_button:hover,
@@ -212,5 +254,54 @@ section {
 }
 
 .prods_button:focus:not(:hover) {
+  transform: scale(1);
+}
+
+.secondary_button:hover,
+.secondary_button:focus {
+  transform: scale(1.1);
+  background-color: #E23B19;
+  transition: border-color 0.7s, background-color 0.7s, box-shadow 1s, transform 0.7s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.secondary_button {
+  padding: 10px 20px;
+  font-size: 1.2em;
+  background-color: #d23819d2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  text-decoration: none;
+  transition: border-color 0.7s, background-color 0.7s, box-shadow 1s, transform 0.7s ease;
+  width: 200px;
+  height: 150px;
+}
+
+.secondary_button:focus:not(:hover) {
+  transform: scale(1);
+}
+
+.audio-controls button {
+  background-color: #C28159;
+  border: none;
+  color: white;
+  padding: 10px;
+  margin: 0 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: border-color 0.7s, background-color 0.7s, box-shadow 1s, transform 0.7s ease;
+}
+
+.audio-controls button:hover,
+.audio-controls button:focus {
+  background-color: #C2784A;
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.audio-controls button:focus:not(:hover) {
   transform: scale(1);
 }

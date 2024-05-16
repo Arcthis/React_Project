@@ -1,7 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { Route, Routes, Link } from 'react-router-dom';
 import './App.css';
 import Prods from './components/Prods';
+import ProdDetails from './components/ProdDetails';
+import ShoppingBasket from './components/ShoppingBasket'
 import Playlist from './img/Playlist.png';
 import Mixer from './img/Mixer.png';
 import Pianoroll from './img/Piano_roll.png';
@@ -42,7 +44,7 @@ function Home() {
           <button className="primary_button">Voir les prods</button>
           </Link>
         </div>
-        {/* <div id="screenshots">
+        <div id="screenshots">
           <div className="row">
             <div className="screen">
               <PlaylistImg />
@@ -55,8 +57,8 @@ function Home() {
             <div className="screen">
               <PianorollImg />
             </div>
-          </div> */}
-        {/* </div> */}
+          </div>
+        </div>
       </div>
       </body>
       <footer className="Footer">
@@ -68,13 +70,13 @@ function Home() {
 
 export default function App() {
   return (
-    <Router>
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/prods" element={<Prods />} />
-        </Routes>
-      </div>
-    </Router>
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/prods" element={<Prods />} />
+        <Route path="/prods/:id" element={<ProdDetails />} />
+        <Route path="/shopping_basket" element={<ShoppingBasket />} />
+      </Routes>
+    </div>
   );
 }
