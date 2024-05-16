@@ -1,5 +1,6 @@
-/* ----- TEMPLATE COULEURS ----- */
 /* 
+----- TEMPLATE COULEURS -----
+
 #F7F6F4 --- BLANC
 #C28159 --- ORANGE => hover : #C2784A
 #94928E --- GRIS CLAIR
@@ -7,51 +8,24 @@
 #353835 --- GRIS FONCE
 */
 
-.App {
-  text-align: center;
-}
-
-.App-header {
+.Header {
   background-color: #94928E;
   padding: 20px;
   color: white;
+  text-align: center;
 }
 
-.App-header h1 {
+.Header h1 {
   font-size: 2.5em;
+  margin: 0;
 }
 
-.App-header p {
+.Header p {
   font-size: 1.2em;
   margin-top: 20px;
 }
 
-.primary_button:hover,
-.primary_button:focus {
-  transform: scale(1.1);
-  background-color: #C2784A; /* Couleur de fond lors du hover ou focus */
-  transition: border-color 0.7s, background-color 0.7s, box-shadow 0.7s; /* Transition pour le changement de couleur de fond */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Ombre portée lors du hover ou focus */
-}
-
-.primary_button {
-  padding: 10px 20px;
-  font-size: 1.2em;
-  background-color: #C28159; /* Couleur de fond par défaut */
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 20px;
-  text-decoration: none;
-  transition: transform 0.3s ease;
-}
-
-.primary_button:focus:not(:hover) {
-  transform: scale(1);
-}
-
-.App-footer {
+.Footer {
   background-color: #94928E;
   padding: 10px;
   position: fixed;
@@ -59,4 +33,184 @@
   left: 0;
   width: 100%;
   color: white;
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #F5F5F5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin-bottom: 35px;
+}
+
+#home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex: 1;
+  margin: 10px 0;
+}
+
+#description {
+  background-color: #353835;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  border: 1px solid black;
+}
+
+.screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex: 1;
+  border: 1px solid black;
+  background-color: #353835; 
+  margin: 10px 0;
+}
+
+#description h3 {
+  margin-top: 0;
+  text-align: center;
+}
+
+#prodsDescription {
+  margin: 0;
+  font-size: 1em;
+}
+
+#description #prodsDescription {
+  margin: 0;
+  font-size: 1em;
+}
+
+#description ul {
+  list-style-type: square;
+  padding: 0;
+}
+
+#description li {
+  margin: 5px 0;
+  margin: 20px 0 0 20px;
+}
+
+#screenshots {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 40%;
+}
+
+.resized-img {
+  width: auto;
+  height: calc(33.33vh - 20px);
+}
+
+.Filters {
+  background-color: white;
+  padding: 10px;
+  color: white;
+  text-align: center;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.Prods_kanban {
+  display: grid;
+  grid-template-columns: repeat(3, 0fr);
+  grid-gap: 20px;
+  padding: 30px;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* ---------------------------- BUTTONS ---------------------------- */
+
+.primary_button:hover,
+.primary_button:focus {
+  transform: scale(1.1);
+  background-color: #C2784A;
+  transition: border-color 0.7s, background-color 0.7s, box-shadow 1s, transform 0.7s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.primary_button {
+  padding: 10px 20px;
+  font-size: 1.2em;
+  background-color: #C28159;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  text-decoration: none;
+  transition: border-color 0.7s, background-color 0.7s, box-shadow 1s, transform 0.7s ease;
+}
+
+.primary_button:focus:not(:hover) {
+  transform: scale(1);
+}
+
+.filter_button {
+  padding: 10px 20px;
+  font-size: 1.1em;
+  background-color: #C28159;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.7s, background-color 0.7s, box-shadow 1s, transform 0.7s ease;
+}
+
+.filter_button:hover,
+.filter_button:focus {
+  transform: scale(1.1);
+  background-color: #C2784A;
+  transition: border-color 0.7s, background-color 0.7s, box-shadow 1s, transform 0.7s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.filter_button:focus:not(:hover) {
+  transform: scale(1);
+}
+
+.prods_button {
+  padding: 10px 20px;
+  font-size: 1.2em;
+  background-color: #C28159;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.7s, background-color 0.7s, box-shadow 1s, transform 0.7s ease;
+  width: 300px;
+  height: 300px;
+}
+
+.prods_button:hover,
+.prods_button:focus {
+  transform: scale(1.1);
+  background-color: #C2784A;
+  transition: border-color 0.7s, background-color 0.7s, box-shadow 1s, transform 0.7s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.prods_button:focus:not(:hover) {
+  transform: scale(1);
 }
