@@ -1,23 +1,15 @@
-import React, { useRef, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import React, { useRef, useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
 import '../App.css';
-import ShoppingBasket from './ShoppingBasket.js';
-
+import productionsData from '../img/data.json';
 
 export default function ProdDetails() {
   const { id } = useParams();
-  const productions = [
-    { id: 1, name: 'Prod 1', genre: 'Trap', audioSrc: '/audio/Prod1.mp3'},
-    { id: 2, name: 'Prod 2', genre: 'BoomBap' },
-    { id: 3, name: 'Prod 3', genre: 'Drill' },
-    { id: 4, name: 'Prod 4', genre: 'Trap' },
-    { id: 5, name: 'Prod 5', genre: 'BoomBap' },
-    { id: 6, name: 'Prod 6', genre: 'Drill' },
-    { id: 7, name: 'Prod 7', genre: 'Rage' },
-    { id: 8, name: 'Prod 8', genre: 'Trap' },
-    { id: 9, name: 'Prod 9', genre: 'Rage' },
-  ];
+  const [productions, setProductions] = useState([]);
+
+  useEffect(() => {
+    setProductions(productionsData);
+  }, []);
 
   const production = productions.find(prod => prod.id === parseInt(id));
   const audioRef = useRef(null);
@@ -49,50 +41,60 @@ export default function ProdDetails() {
     setProgress(e.target.value);
   };
 
+  const addToCart = () => {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existingItem = cart.find(item => item.id === production.id);
+
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      cart.push({ ...production, quantity: 1 });
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+  };
+
   return (
     <div className='ProdDetails'>
       <header className="Header">
         <h1>Détails de la {production.name}</h1>
       </header>
       <div>
-      <div className='ProdInfo'>
-        <h3>Description de la prod</h3>
-        <p>Genre: {production.genre}</p>
-        <p>Nom: {production.name}</p>
-      </div>
-      <div className="audio-player">
-        <audio ref={audioRef} onTimeUpdate={handleTimeUpdate}>
+        <div className='ProdInfo'>
+          <h3>Description de la prod</h3>
+          <p>Genre: {production.genre}</p>
+          <p>Nom: {production.name}</p>
+        </div>
+        <div className="audio-player">
+          <audio ref={audioRef} onTimeUpdate={handleTimeUpdate}>
             <source src={production.audioSrc} type="audio/mpeg" />
             Votre navigateur ne supporte pas l'élément audio.
-        </audio>
-        <div className="audio-controls">
+          </audio>
+          <div className="audio-controls">
             <button onClick={handlePlayPause}>
-            {isPlaying ? 'Pause' : 'Play'}
+              {isPlaying ? 'Pause' : 'Play'}
             </button>
             <div className="audio-progress">
-            <input
+              <input
                 type="range"
                 min="0"
                 max="100"
                 value={progress}
                 onChange={handleProgressChange}
-            />
+              />
             </div>
+          </div>
         </div>
-      </div>
-      <div id="action_prods">
-        <Link to="/prods">
+        <div id="action_prods">
+          <Link to="/prods">
             <button className="secondary_button">Retour</button>
-        </Link>
-        <button className="secondary_button" onClick={() => ShoppingBasket(production)}>
-            Ajouter
-        </button>
-      </div>
+          </Link>
+          <button className="secondary_button" onClick={addToCart}>Ajouter</button>
+        </div>
       </div>
       <footer className="Footer">
         <p>&copy; 2024 Tous droits réservés</p>
       </footer>
-      <ShoppingBasket />
     </div>
   );
 }

@@ -2,8 +2,8 @@ import React from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
 import './App.css';
 import Prods from './components/Prods';
+import Cart from './components/Cart';
 import ProdDetails from './components/ProdDetails';
-import ShoppingBasket from './components/ShoppingBasket'
 import Playlist from './img/Playlist.png';
 import Mixer from './img/Mixer.png';
 import Pianoroll from './img/Piano_roll.png';
@@ -75,7 +75,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/prods" element={<Prods />} />
         <Route path="/prods/:id" element={<ProdDetails />} />
-        <Route path="/shopping_basket" element={<ShoppingBasket />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </div>
   );
